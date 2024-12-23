@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mimo/utils/constance.dart';
 
 class SplashImage extends StatelessWidget {
   const SplashImage({
@@ -8,11 +9,9 @@ class SplashImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Image.asset(
-        'assets/splash_white.png', 
-        width: 150, 
-        height: 150, 
-      ),
+      child: Image.asset(Theme.of(context).brightness == Brightness.light
+                    ? whiteSplash
+                    : blackSplash,),
     );
   }
 }

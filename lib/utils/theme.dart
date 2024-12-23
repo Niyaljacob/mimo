@@ -13,8 +13,8 @@ class Themes {
   );
 
   static ThemeData darkModeTheme = ThemeData.dark().copyWith(
-      appBarTheme: const AppBarTheme(color: black, surfaceTintColor: black),
-      scaffoldBackgroundColor:  Colors.black,
+      appBarTheme: const AppBarTheme(color: primary, surfaceTintColor: primary),
+      scaffoldBackgroundColor:  primary,
       elevatedButtonTheme: const ElevatedButtonThemeData(
           style: ButtonStyle(
               backgroundColor: WidgetStatePropertyAll(primary))));

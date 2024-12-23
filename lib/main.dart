@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart'; // Import Firebase core package
 import 'package:mimo/pages/splash_screen/splash.dart';
+import 'package:mimo/utils/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, 
+      theme: Themes.lightModeTheme,
+        darkTheme: Themes.darkModeTheme,
       home: const SplashScreen(),
     );
   }

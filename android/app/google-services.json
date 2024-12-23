@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1068167125190",
+    "project_id": "mimo-dd9dd",
+    "storage_bucket": "mimo-dd9dd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068167125190:android:224460c04bb3b141335fc7",
+        "android_client_info": {
+          "package_name": "com.example.mimo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiPAHbtKLOs6EjkD-xEH90FLTctAg5JLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

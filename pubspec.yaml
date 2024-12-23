@@ -35,6 +35,7 @@ dependencies:
   firebase_storage: ^12.3.7
   flutter:
     sdk: flutter
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_lints: ^3.0.0

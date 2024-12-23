@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart'; // Import Firebase core package
-import 'package:mimo/pages/splash_screen/splash.dart';
-import 'package:mimo/utils/theme.dart';
+import 'package:get/get.dart'; // Import GetX package
+import 'package:mimo/pages/splash_screen/splash.dart'; // Import your splash screen
+import 'package:mimo/utils/theme.dart'; // Import your theme setup
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(); // Ensure Firebase is initialized before running the app
 
-  runApp(const MyApp());
+  runApp(const MyApp()); // Run your app after Firebase initialization
 }
 
 class MyApp extends StatelessWidget {
@@ -15,11 +16,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false, 
-      theme: Themes.lightModeTheme,
-        darkTheme: Themes.darkModeTheme,
-      home: const SplashScreen(),
+    return GetMaterialApp( // Use GetMaterialApp for GetX support
+      debugShowCheckedModeBanner: false,
+      theme: Themes.lightModeTheme, // Light mode theme
+      darkTheme: Themes.darkModeTheme, // Dark mode theme
+      home: const SplashScreen(), // Set your initial screen here
     );
   }
 }

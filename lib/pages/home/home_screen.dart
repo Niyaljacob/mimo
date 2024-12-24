@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mimo/controllers/firebse/firebase_auth.dart';
-import 'package:mimo/pages/login/login_screen.dart';
 import 'package:mimo/pages/profile/profile_screen.dart'; // Import your Profile screen
 
 class HomeScreen extends StatelessWidget {
@@ -12,10 +10,9 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            // Navigate to profile page when the image is tapped
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              MaterialPageRoute(builder: (context) =>  ProfileScreen()),
             );
           },
           child: Padding(
@@ -35,22 +32,6 @@ class HomeScreen extends StatelessWidget {
         ),
         centerTitle: true,
         title: const Text("Categories",style: TextStyle(fontWeight: FontWeight.bold),),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () async {
-           
-              await FirebaseAuthService().signOutUser();
-              
-              
-              Navigator.pushReplacement(
-                // ignore: use_build_context_synchronously
-                context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
-              );
-            },
-          ),
-        ],
       ),
       body: Center(
         child: const Text('Welcome to Home Screen!'),

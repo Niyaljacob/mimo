@@ -64,25 +64,6 @@ class CategoryController extends GetxController {
     }
   }
 
-   // Function to delete a category from Firestore
-  Future<void> deleteCategory(String categoryId) async {
-    try {
-      String userId = _auth.currentUser!.uid;
 
-      // Delete the category document by its ID
-      await _firestore
-          .collection('users')
-          .doc(userId)
-          .collection('categories')
-          .doc(categoryId)
-          .delete();
 
-      // Fetch updated categories after deletion
-      fetchCategories();
-
-      Get.snackbar('Success', 'Category deleted successfully');
-    } catch (e) {
-      Get.snackbar('Error', e.toString());
-    }
-  }
 }

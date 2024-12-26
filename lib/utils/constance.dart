@@ -15,3 +15,5 @@ const greyNew=Color.fromARGB(255, 233, 232, 232);
 
 const whiteSplash= 'assets/splash_white.png';
 const blackSplash= 'assets/splash_black.png';
+const profileImage = 'assets/profile1.jpg';
+const profileImage2='assets/profile2.jpg';

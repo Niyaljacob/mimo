@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mimo/pages/caterory_details_page/category_details_screen.dart';
-import 'package:mimo/utils/constance.dart';
+import 'package:mimo/pages/home/widgets/categories_container.dart';
 
 class CategorySearchDelegate extends SearchDelegate {
   final List categories;
@@ -31,7 +31,7 @@ class CategorySearchDelegate extends SearchDelegate {
 
     return GridView.builder(
       padding: const EdgeInsets.all(10),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
          crossAxisCount: 2,
                           crossAxisSpacing: 15.0,
                           mainAxisSpacing: 15.0,
@@ -53,62 +53,8 @@ class CategorySearchDelegate extends SearchDelegate {
       ),
     );
   },
-          child: Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).brightness == Brightness.light
-                  ? whiteColor
-                  : secondPrimary,
-              borderRadius: BorderRadius.circular(5),
-              boxShadow: [
-                BoxShadow(
-                  color: const Color.fromARGB(255, 134, 122, 122).withOpacity(0.1),
-                  spreadRadius: 2,
-                  blurRadius: 2,
-                  offset: const Offset(0, 3),
-                ),
-              ],
-            ),
-            child: Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(category['emoji'] ?? '😎✨'),
-                      Text(
-                        category['title'] ?? 'Default Title',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20,
-                          color: Theme.of(context).brightness == Brightness.light
-                              ? black
-                              : whiteColor,
-                        ),
-                      ),
-                      Text(
-                        '${category['taskCount'] ?? 0} tasks',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Theme.of(context).brightness == Brightness.light
-                              ? black
-                              : whiteColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(Icons.more_vert),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          child: CategorieContainer(category: category),
+          
         );
       },
     );

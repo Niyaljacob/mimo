@@ -18,7 +18,7 @@ Future<void> showMyDialog(BuildContext context, CategoryController controller) a
             top: 100, // Adjusted position
             left: 20,
             right: 20,
-            child: Container(
+            child: SizedBox(
               width: 600,
               child: Stack(
                 alignment: Alignment.topRight,
@@ -27,7 +27,10 @@ Future<void> showMyDialog(BuildContext context, CategoryController controller) a
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    backgroundColor: secondPrimary, // Same background color
+                    backgroundColor: Theme.of(context).brightness ==
+                                Brightness.light
+                            ? whiteColor
+                            : secondPrimary, // Same background color
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

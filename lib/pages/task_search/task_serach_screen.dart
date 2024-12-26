@@ -1,15 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:intl/intl.dart';
 import 'package:mimo/controllers/getX/task_controller.dart';
-import 'package:mimo/pages/caterory_details_page/category_details_screen.dart';
+import 'package:mimo/pages/caterory_details_page/widgets/task_items.dart';
 
 class SearchPage extends StatelessWidget {
   final TaskController taskController;
 
-  SearchPage({required this.taskController});
+  SearchPage({super.key, required this.taskController});
 
   final TextEditingController searchController = TextEditingController();
 

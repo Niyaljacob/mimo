@@ -48,6 +48,7 @@ class CategorySearchDelegate extends SearchDelegate {
       MaterialPageRoute(
         builder: (context) => CategoryDetailPage(
           title: category['title'] ?? 'Default Title',
+          categoryId: category['id'],
         ),
       ),
     );

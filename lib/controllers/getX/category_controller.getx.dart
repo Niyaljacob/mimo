@@ -45,24 +45,26 @@ class CategoryController extends GetxController {
     }
   }
 
-  // Function to fetch categories from Firestore
-  Future<void> fetchCategories() async {
-    try {
-      String userId = _auth.currentUser!.uid;
+ Future<void> fetchCategories() async {
+  try {
+    String userId = _auth.currentUser!.uid;
 
-      final snapshot = await _firestore
-          .collection('users')
-          .doc(userId)
-          .collection('categories')
-          .orderBy('createdAt', descending: true)
-          .get();
+    final snapshot = await _firestore
+        .collection('users')
+        .doc(userId)
+        .collection('categories')
+        .orderBy('createdAt', descending: true)
+        .get();
 
-      // Map Firestore documents to a list of categories
-      categories.value = snapshot.docs.map((doc) => doc.data()).toList();
-    } catch (e) {
-      Get.snackbar('Error', e.toString());
-    }
+    // Include document ID in the data
+    categories.value = snapshot.docs
+        .map((doc) => {'id': doc.id, ...doc.data() as Map<String, dynamic>})
+        .toList();
+  } catch (e) {
+    Get.snackbar('Error', e.toString());
   }
+}
+
 
 
 

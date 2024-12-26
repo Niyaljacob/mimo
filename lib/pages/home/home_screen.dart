@@ -110,7 +110,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
-                              color: Theme.of(context).brightness == Brightness.light
+                              color: Theme.of(context).brightness ==
+                                      Brightness.light
                                   ? black
                                   : whiteColor,
                             ),
@@ -138,19 +139,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     ];
 
                     // Filter categories based on the search query
-                    final filteredCategories = categories
-                        .where((category) {
-                          if (_searchQuery.isEmpty) return true;
-                          return (category['title'] ?? '')
-                              .toLowerCase()
-                              .contains(_searchQuery.toLowerCase());
-                        })
-                        .toList();
+                    final filteredCategories = categories.where((category) {
+                      if (_searchQuery.isEmpty) return true;
+                      return (category['title'] ?? '')
+                          .toLowerCase()
+                          .contains(_searchQuery.toLowerCase());
+                    }).toList();
 
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GridView.builder(
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           crossAxisSpacing: 15.0,
                           mainAxisSpacing: 15.0,
@@ -158,20 +158,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         itemCount: filteredCategories.length,
                         itemBuilder: (context, index) {
-                          if (filteredCategories[index]["isAddContainer"] == true) {
+                          if (filteredCategories[index]["isAddContainer"] ==
+                              true) {
                             return GestureDetector(
                               onTap: () {
                                 showMyDialog(context, categoryController);
                               },
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Theme.of(context).brightness == Brightness.light
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.light
                                       ? whiteColor
                                       : secondPrimary,
                                   borderRadius: BorderRadius.circular(5),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: const Color.fromARGB(255, 134, 122, 122).withOpacity(0.1),
+                                      color: const Color.fromARGB(
+                                              255, 134, 122, 122)
+                                          .withOpacity(0.1),
                                       spreadRadius: 2,
                                       blurRadius: 2,
                                       offset: const Offset(0, 3),
@@ -181,12 +185,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Center(
                                   child: CircleAvatar(
                                     radius: 20.0,
-                                    backgroundColor: Theme.of(context).brightness == Brightness.light
-                                        ? secondPrimary
-                                        : whiteColor,
+                                    backgroundColor:
+                                        Theme.of(context).brightness ==
+                                                Brightness.light
+                                            ? secondPrimary
+                                            : whiteColor,
                                     child: Icon(
                                       Icons.add,
-                                      color: Theme.of(context).brightness == Brightness.light
+                                      color: Theme.of(context).brightness ==
+                                              Brightness.light
                                           ? whiteColor
                                           : Colors.blue,
                                     ),
@@ -199,25 +206,29 @@ class _HomeScreenState extends State<HomeScreen> {
                           final category = filteredCategories[index];
                           return GestureDetector(
                             onTap: () {
-    // Navigate to the new page with category title and id
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => CategoryDetailPage(
-          title: category['title'] ?? 'Default Title',
-        ),
-      ),
-    );
-  },
+                              // Navigate to the new page with category title and id
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CategoryDetailPage(
+                                    title: category['title'] ?? 'Default Title',
+                                    categoryId: category['id'],
+                                  ),
+                                ),
+                              );
+                            },
                             child: Container(
                               decoration: BoxDecoration(
-                                color: Theme.of(context).brightness == Brightness.light
+                                color: Theme.of(context).brightness ==
+                                        Brightness.light
                                     ? whiteColor
                                     : secondPrimary,
                                 borderRadius: BorderRadius.circular(5),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: const Color.fromARGB(255, 134, 122, 122).withOpacity(0.1),
+                                    color:
+                                        const Color.fromARGB(255, 134, 122, 122)
+                                            .withOpacity(0.1),
                                     spreadRadius: 2,
                                     blurRadius: 2,
                                     offset: const Offset(0, 3),
@@ -227,9 +238,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Stack(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(20, 20, 0, 0),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(category['emoji'] ?? '😎✨'),
                                         Text(
@@ -237,18 +250,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                           style: TextStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 20,
-                                            color: Theme.of(context).brightness == Brightness.light
-                                                ? black
-                                                : whiteColor,
+                                            color:
+                                                Theme.of(context).brightness ==
+                                                        Brightness.light
+                                                    ? black
+                                                    : whiteColor,
                                           ),
                                         ),
                                         Text(
                                           '${category['taskCount'] ?? 0} tasks',
                                           style: TextStyle(
                                             fontSize: 16,
-                                            color: Theme.of(context).brightness == Brightness.light
-                                                ? black
-                                                : whiteColor,
+                                            color:
+                                                Theme.of(context).brightness ==
+                                                        Brightness.light
+                                                    ? black
+                                                    : whiteColor,
                                           ),
                                         ),
                                       ],
@@ -279,4 +296,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-

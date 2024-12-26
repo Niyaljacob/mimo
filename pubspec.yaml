@@ -36,6 +36,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.6
+  intl: ^0.20.1
 
 dev_dependencies:
   flutter_lints: ^3.0.0
